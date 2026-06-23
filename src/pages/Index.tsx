@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
 
 const Index = () => {
   const githubBaseUrl = "https://raw.githubusercontent.com/EstefaniaInteriors/moms-website/main/public";
@@ -16,6 +17,11 @@ const Index = () => {
   
   return (
     <div className="min-h-screen bg-background cursor-pointer flex flex-col relative" onClick={handlePageClick}>
+      <Seo
+        title="Interior Design & Art Consulting in New York"
+        description="Estefania Bustamante is a New York-based interior designer and art consultant creating luxury residential interiors across the Upper East Side, the Hamptons, Brooklyn, and beyond."
+        path="/"
+      />
       {/* Hero Section */}
       <section className="relative h-screen">
         {/* Background Image */}

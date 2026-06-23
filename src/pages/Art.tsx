@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
 
 const Art = () => {
   const location = useLocation();
@@ -234,6 +235,12 @@ const Art = () => {
   }
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <Seo
+        title="Art Consulting & Curation"
+        description="Art consulting and curation by Estefania Bustamante — sourcing, advising on, and placing fine art to complete sophisticated, collected interiors in New York and beyond."
+        path="/art"
+      />
+      <h1 className="sr-only">Art Consulting &amp; Curation — Estefania Bustamante</h1>
       {/* Header */}
       <header className="border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-6">

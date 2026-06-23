@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
 
 const Contact = () => {
   const location = useLocation();
@@ -13,6 +14,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <Seo
+        title="Contact"
+        description="Get in touch with Estefania Bustamante for interior design and art consulting services in New York City, the Hamptons, and beyond."
+        path="/contact"
+      />
       {/* Header */}
       <header className="border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-6">

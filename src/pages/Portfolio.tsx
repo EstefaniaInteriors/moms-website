@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
 
 const Portfolio = () => {
   const location = useLocation();
@@ -13,6 +14,12 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Portfolio"
+        description="Selected interior design and art projects by Estefania Bustamante."
+        path="/portfolio"
+        noindex
+      />
       {/* Header */}
       <header className="border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-6">

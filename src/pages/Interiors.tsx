@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
 
 const Interiors = () => {
   const location = useLocation();
@@ -365,6 +366,12 @@ const Interiors = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <Seo
+        title="Interior Design Portfolio"
+        description="Browse Estefania Bustamante's portfolio of luxury residential interior design projects across New York City, the Upper East Side, the Hamptons, Brooklyn, and Buenos Aires."
+        path="/interiors"
+      />
+      <h1 className="sr-only">Interior Design Portfolio — Estefania Bustamante</h1>
       {/* Header */}
       <header className="border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-6">
