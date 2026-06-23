@@ -113,7 +113,7 @@ const Interiors = () => {
 
   // Custom order for specific project images
   const customImageOrder = {
-    'SAG HARBOR TOWN': ['outside-2-sht.png', 'front-door-sht.jpg'],
+    'SAG HARBOR TOWN': ['outside-2-sht.png', 'front-door-sht.jpg', 'lr-distance-sht.jpeg'],
     'Sag Harbor': ['outside-1-sh.JPG'],
     'Brooklyn': ['exterior.jpeg']
   };
