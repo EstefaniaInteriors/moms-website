@@ -22,7 +22,7 @@ interface SeoProps {
  * Rendered via react-helmet-async so each route gets its own metadata.
  */
 const Seo = ({ title, description, path, image = DEFAULT_IMAGE, noindex = false }: SeoProps) => {
-  const fullTitle = `${title} | Estefania Bustamante Interiors`;
+  const fullTitle = `${title} | Estefania Interiors`;
   const canonical = `${SITE_URL}${path}`;
 
   return (
