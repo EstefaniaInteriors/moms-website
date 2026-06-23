@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 const Art = () => {
   const location = useLocation();
-  const githubBaseUrl = "https://raw.githubusercontent.com/rosawes/moms-website/main/public/images/art";
+  const githubBaseUrl = "https://raw.githubusercontent.com/EstefaniaInteriors/moms-website/main/public/images/art";
 
   const navItems = [
     { name: "INTERIORS", path: "/interiors" },
@@ -27,7 +27,7 @@ const Art = () => {
       let artworkId = 1;
       
       // First, get the latest commit SHA from the main branch
-      const branchResponse = await fetch("https://api.github.com/repos/rosawes/moms-website/branches/main");
+      const branchResponse = await fetch("https://api.github.com/repos/EstefaniaInteriors/moms-website/branches/main");
       
       if (!branchResponse.ok) {
         throw new Error(`Failed to fetch branch info: ${branchResponse.status}`);
@@ -37,7 +37,7 @@ const Art = () => {
       const commitSha = branchData.commit.sha;
       
       // Now get the recursive tree using the commit SHA
-      const treeResponse = await fetch(`https://api.github.com/repos/rosawes/moms-website/git/trees/${commitSha}?recursive=1`);
+      const treeResponse = await fetch(`https://api.github.com/repos/EstefaniaInteriors/moms-website/git/trees/${commitSha}?recursive=1`);
       
       if (!treeResponse.ok) {
         throw new Error(`Failed to fetch repository tree: ${treeResponse.status}`);
@@ -66,7 +66,7 @@ const Art = () => {
         
         allArtworks.push({
           id: artworkId++,
-          image: `https://raw.githubusercontent.com/rosawes/moms-website/main/${item.path}`,
+          image: `https://raw.githubusercontent.com/EstefaniaInteriors/moms-website/main/${item.path}`,
           alt: `Artwork by ${artistName}`,
           artist: artistName
         });

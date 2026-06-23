@@ -62,7 +62,7 @@ const Contact = () => {
               {/* Contact Image */}
               <div className="my-12">
                 <img 
-                  src="https://raw.githubusercontent.com/rosawes/moms-website/refs/heads/main/public/images/contact/pigeon.jpg"
+                  src="https://raw.githubusercontent.com/EstefaniaInteriors/moms-website/refs/heads/main/public/images/contact/pigeon.jpg"
                   alt="Estefania Bustamante"
                   className="w-32 h-32 object-cover mx-auto rounded-lg"
                 />

@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 const Interiors = () => {
   const location = useLocation();
-  const githubBaseUrl = "https://raw.githubusercontent.com/rosawes/moms-website/main";
+  const githubBaseUrl = "https://raw.githubusercontent.com/EstefaniaInteriors/moms-website/main";
 
   const navItems = [
     { name: "INTERIORS", path: "/interiors" },
@@ -27,7 +27,7 @@ const Interiors = () => {
       let imageId = 1;
       
       // First, get the latest commit SHA from the main branch
-      const branchResponse = await fetch("https://api.github.com/repos/rosawes/moms-website/branches/main");
+      const branchResponse = await fetch("https://api.github.com/repos/EstefaniaInteriors/moms-website/branches/main");
       
       if (!branchResponse.ok) {
         throw new Error(`Failed to fetch branch info: ${branchResponse.status}`);
@@ -37,7 +37,7 @@ const Interiors = () => {
       const commitSha = branchData.commit.sha;
       
       // Now get the recursive tree using the commit SHA
-      const treeResponse = await fetch(`https://api.github.com/repos/rosawes/moms-website/git/trees/${commitSha}?recursive=1`);
+      const treeResponse = await fetch(`https://api.github.com/repos/EstefaniaInteriors/moms-website/git/trees/${commitSha}?recursive=1`);
       
       if (!treeResponse.ok) {
         throw new Error(`Failed to fetch repository tree: ${treeResponse.status}`);
@@ -111,7 +111,8 @@ const Interiors = () => {
   // Custom order for specific project images
   const customImageOrder = {
     'SAG HARBOR TOWN': ['outside-2-sht.png', 'front-door-sht.jpg'],
-    'Sag Harbor': ['outside-1-sh.JPG']
+    'Sag Harbor': ['outside-1-sh.JPG'],
+    'Brooklyn': ['exterior.jpeg']
   };
 
   // Sort images by folder order and custom image order

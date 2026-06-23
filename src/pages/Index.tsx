@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 
 const Index = () => {
-  const githubBaseUrl = "https://raw.githubusercontent.com/rosawes/moms-website/main/public";
+  const githubBaseUrl = "https://raw.githubusercontent.com/EstefaniaInteriors/moms-website/main/public";
   const navigate = useNavigate();
   
   // Add cache-busting parameter to force image refresh
