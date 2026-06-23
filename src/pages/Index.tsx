@@ -31,7 +31,7 @@ const Index = () => {
               key={num}
               src={`${githubBaseUrl}/images/hero-shots/home-page-${num}.jpeg?v=${cacheBuster}`}
               alt={`Estefania's interior design showcase ${num}`}
-              style={num === 5 ? { objectPosition: 'center 68%' } : undefined}
+              style={num === 5 ? { objectPosition: 'center 68%' } : num === 3 ? { objectPosition: 'center 56%' } : undefined}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out ${
                 num === 1 ? 'animate-slideshow-1' :
                 num === 2 ? 'animate-slideshow-2' :
