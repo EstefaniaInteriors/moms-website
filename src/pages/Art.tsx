@@ -286,7 +286,7 @@ const Art = () => {
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
-                <p className="text-foreground text-sm font-light tracking-[0.1em] mt-2">{artwork.artist}</p>
+                <p className="text-foreground text-[10px] font-light tracking-[0.2em] font-sans mt-3">{artwork.artist}</p>
               </div>
             ))}
           </div>
@@ -308,22 +308,19 @@ const Art = () => {
             &#8249;
           </button>
 
-          <div className="relative max-w-[80vw] max-h-[90vh] flex items-center justify-center">
+          <div className="relative flex flex-col items-center w-fit max-w-[90vw] max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
             <img
               src={selectedImage.image}
               alt={selectedImage.alt}
-              className="max-w-[80vw] max-h-[90vh] object-contain rounded-lg"
-              onClick={(e) => e.stopPropagation()}
+              className="max-w-[90vw] max-h-[82vh] object-contain rounded-lg"
             />
+            <h3 className="text-white text-[10px] font-light tracking-[0.2em] font-sans mt-4">{selectedImage.artist}</h3>
             <button
               onClick={handleCloseModal}
               className="absolute top-2 right-2 text-white text-2xl hover:text-gray-300 transition-colors bg-black bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center"
             >
               ×
             </button>
-            <div className="absolute bottom-2 left-2 text-white bg-black bg-opacity-50 px-2 py-1 rounded">
-              <h3 className="text-[10px] font-light tracking-[0.2em] font-sans">{selectedImage.artist}</h3>
-            </div>
           </div>
 
           {/* Right arrow */}
