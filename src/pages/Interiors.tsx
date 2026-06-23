@@ -101,11 +101,13 @@ const Interiors = () => {
     { location: 'Upper East Side', filename: 'living-4.jpeg' },
     { location: 'Upper East Side', filename: 'living-5.jpeg' },
     { location: 'Upper East Side', filename: 'living-5.jpg' },
-    { location: 'Upper East Side 79th', filename: 'dining-1.jpeg' },
-    { location: 'Upper East Side 79th', filename: 'kitchen-1.jpeg' },
+    { location: 'Upper East Side 79th', filename: 'Estefania Interiors dining-1.jpeg' },
+    { location: 'Upper East Side 79th', filename: 'Estefania Interiors Estefania Bustamante kitchen-1-new.jpeg' },
+    { location: 'Upper East Side 79th', filename: 'dining-79th-new.jpeg' },
+    { location: 'Upper East Side 79th', filename: 'Estefania Interiors Estefania Bustamante bed-2-79.JPG' },
     { location: 'Upper East Side 79th', filename: 'bed-1.jpg' },
-    { location: 'Upper East Side 79th', filename: 'bed-2-new.JPG' },
-    { location: 'Upper East Side 79th', filename: 'bath-1.JPG' },
+    { location: 'Upper East Side 79th', filename: 'bedroom-hazel.jpeg' },
+    { location: 'Upper East Side 79th', filename: 'bath-1-new.jpeg' },
     { location: 'Upper East Side 79th', filename: 'bath-2.JPG' }
   ];
 
