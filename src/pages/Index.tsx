@@ -26,17 +26,15 @@ const Index = () => {
       <section className="relative h-screen">
         {/* Background Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          {[1, 2, 3, 4, 5].map((num) => (
-            <img 
+          {[1, 2, 3].map((num) => (
+            <img
               key={num}
               src={`${githubBaseUrl}/images/hero-shots/home-page-${num}.jpeg?v=${cacheBuster}`}
               alt={`Estefania's interior design showcase ${num}`}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out ${
-                num === 1 ? 'animate-slideshow-1' : 
-                num === 2 ? 'animate-slideshow-2' : 
-                num === 3 ? 'animate-slideshow-3' : 
-                num === 4 ? 'animate-slideshow-4' : 
-                'animate-slideshow-5'
+                num === 1 ? 'animate-slideshow-1' :
+                num === 2 ? 'animate-slideshow-2' :
+                'animate-slideshow-3'
               }`}
             />
           ))}
