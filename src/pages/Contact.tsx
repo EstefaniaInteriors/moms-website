@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import Footer from "@/components/Footer";
 
 const Contact = () => {
   const location = useLocation();
@@ -45,26 +46,30 @@ const Contact = () => {
       </header>
 
       {/* Main Content Area */}
-      <main className="py-6 px-6 flex-1">
+      <main className="pt-12 pb-6 px-6 flex-1">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="space-y-12">
-              {/* Contact Information */}
-              <div className="text-[11px] font-light tracking-[0.1em] text-foreground leading-loose">
-                For more information contact me at art@estefaniabustamante.com
-              </div>
+          <div className="max-w-4xl mx-auto">
+            {/* Page Title */}
+            <h1 className="text-lg font-light tracking-[0.2em] text-foreground mb-12">LET'S CONNECT</h1>
+
+            <div className="text-center">
+              <div className="space-y-12">
+                {/* Contact Information */}
+                <div className="text-[11px] font-light tracking-[0.1em] text-foreground leading-loose">
+                  For more information, please contact art@estefaniabustamante.com
+                </div>
               
               {/* Contact Image */}
               <div className="my-12">
                 <img 
-                  src="https://raw.githubusercontent.com/alexwes/buenos-aires-loft-nyc/refs/heads/main/public/images/contact/pigeon.jpg"
+                  src="https://raw.githubusercontent.com/rosawes/moms-website/refs/heads/main/public/images/contact/pigeon.jpg"
                   alt="Estefania Bustamante"
                   className="w-32 h-32 object-cover mx-auto rounded-lg"
                 />
               </div>
               
               {/* Social Media Links */}
-              <div className="flex justify-center space-x-8 py-8">
+              <div className="flex justify-center space-x-8" style={{ marginBottom: '40px' }}>
                 {/* Instagram */}
                 <a 
                   href="https://www.instagram.com/estefania.interiors/" 
@@ -113,21 +118,17 @@ const Contact = () => {
                   </svg>
                 </a>
               </div>
+              
+              {/* Quote below social links */}
+              <blockquote className="text-center text-[11px] font-light leading-loose tracking-[0.1em] text-muted-foreground">
+                "Creativity takes courage." - Henri Matisse
+              </blockquote>
+              </div>
             </div>
           </div>
         </div>
       </main>
-
-      {/* Quote at bottom */}
-      <div className="py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-4xl mx-auto">
-            <blockquote className="text-center text-[11px] font-light leading-loose tracking-[0.1em] text-muted-foreground">
-              "Creativity takes courage." - Henri Matisse
-            </blockquote>
-          </div>
-        </div>
-      </div>
+      <Footer hideSocialLinks />
     </div>
   );
 };

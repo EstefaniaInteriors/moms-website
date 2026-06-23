@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import Footer from "@/components/Footer";
 
 const About = () => {
   const location = useLocation();
@@ -45,39 +46,37 @@ const About = () => {
       </header>
 
       {/* Main Content Area */}
-      <main className="py-6 px-6 flex-1">
+      <main className="pt-12 pb-1 px-6 flex-1 min-h-screen">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl mx-auto">
-            <div className="prose max-w-none text-foreground space-y-6 font-light leading-loose text-[11px]">
+            {/* Page Title */}
+            <h1 className="text-lg font-light tracking-[0.2em] text-foreground mb-2">ABOUT</h1>
+            
+            <div className="max-w-none text-foreground space-y-6 font-light leading-loose text-[12px]">
               <p>
-Based in New York City, our boutique interior design and art consultancy studio offers a thoughtful, bespoke approach that transforms everyday spaces into something truly special.
-
-We believe the interiors we inhabit—where we spend nearly 90% of our lives—should reflect who we are, inspire how we live, and elevate the everyday. Our work is guided by proportion, balance, and a deep appreciation for beauty and individuality. Whether crafting a home from the ground up or reimagining a single room, we create interiors with clean lines, intentional details, and eclectic sophistication. On the art side, we advise seasoned collectors in search of the perfect piece, as well as newcomers navigating the thrilling (and sometimes daunting) world of art collecting—always with warmth, taste, and discernment.
+Estefania Interiors is a boutique interior design and art consultancy studio led by Estefania Bustamante. We offer a thoughtful, bespoke approach that transforms everyday spaces into something truly special. At Estefania Interiors, we believe the interiors that shape our daily lives should reflect who we are, inspire how we live, and elevate the everyday. Our work is guided by proportion, balance, and a deep appreciation for beauty and individuality. Whether crafting a home from the ground up or reimagining a single room, we create interiors with clean lines, intentional details, and eclectic sophistication. On the art side, we advise seasoned collectors in search of the perfect piece, as well as newcomers navigating the thrilling (and sometimes daunting) world of art collecting—always with warmth, taste, and discernment.
               </p>
 
               {/* About Image */}
-              <div className="text-center my-16" style={{ marginTop: '100px' }}>
+              <div className="text-center" style={{ marginTop: '80px', marginBottom: '80px' }}>
                 <img 
                   src="https://raw.githubusercontent.com/alexwes/buenos-aires-loft-nyc/refs/heads/main/public/images/about/tifi-hero.jpeg"
                   alt="Estefania Bustamante"
-                  className="mx-auto rounded-lg max-w-md w-full object-cover"
+                  className="mx-auto rounded-lg max-w-lg w-full object-cover"
                 />
+              </div>
+              
+              {/* Quote below image */}
+              <div>
+                <blockquote className="text-center text-[12px] font-light leading-loose tracking-[0.1em] text-muted-foreground">
+                  "Art is a line around your thoughts." - Gustav Klimt
+                </blockquote>
               </div>
             </div>
           </div>
         </div>
       </main>
-
-      {/* Quote at bottom */}
-      <div className="py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-4xl mx-auto">
-            <blockquote className="text-center text-[11px] font-light leading-loose tracking-[0.1em] text-muted-foreground">
-              "Art is a line around your thoughts." - Gustav Klimt
-            </blockquote>
-          </div>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 };

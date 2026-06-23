@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import Footer from "@/components/Footer";
 
 const Portfolio = () => {
   const location = useLocation();
@@ -48,13 +49,14 @@ const Portfolio = () => {
       </header>
 
       {/* Main Content Area */}
-      <main className="py-6 px-6">
+      <main className="py-6 px-6 min-h-screen">
         <div className="max-w-7xl mx-auto">
           <div className="text-center text-muted-foreground py-20">
             <h1 className="text-2xl font-light tracking-[0.2em]">PORTFOLIO PAGE - COMING SOON</h1>
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
