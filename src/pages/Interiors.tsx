@@ -116,7 +116,7 @@ const Interiors = () => {
     'SAG HARBOR TOWN': ['outside-2-sht.png', 'front-door-sht.jpg', 'lr-distance-sht.jpeg'],
     'Sag Harbor': ['outside-1-sh.JPG'],
     'Brooklyn': ['exterior.jpeg'],
-    'Upper East Side, Carnegie Hill': ['bed-1-carnegie-hill.jpeg', 'bed-2-carnegie-hill.jpeg']
+    'Upper East Side, Carnegie Hill': ['dining-light-oak-carnegie-hill.jpeg', 'bed-1-carnegie-hill.jpeg', 'bed-2-carnegie-hill.jpeg']
   };
 
   // Sort images by folder order and custom image order
