@@ -27,25 +27,59 @@ const Index = () => {
       <section className="relative h-[100svh] overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          {[1, 2, 3, 4, 5].map((num) => (
-            <img
-              key={num}
-              src={`${githubBaseUrl}/images/hero-shots/home-page-${num}.jpeg?v=${cacheBuster}`}
-              alt={`Estefania's interior design showcase ${num}`}
-              style={num === 5 ? { objectPosition: 'center 68%' } : num === 3 ? { objectPosition: 'center 56%' } : num === 1 ? { objectPosition: 'center 74%' } : undefined}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out ${
-                num === 1 ? 'animate-slideshow-1' :
-                num === 2 ? 'animate-slideshow-2' :
-                num === 3 ? 'animate-slideshow-3' :
-                num === 4 ? 'animate-slideshow-4' :
-                'animate-slideshow-5'
-              }`}
-            />
-          ))}
+          {[1, 2, 3, 4, 5].map((num) => {
+            // NOTE: spell these out as literal strings — Tailwind only keeps classes it
+            // can see literally in the source. A template like `animate-slideshow-${num}`
+            // gets purged, which silently kills the slideshow (all photos stack, only the
+            // last one shows). Keep this as an explicit map.
+            const animClass = {
+              1: 'animate-slideshow-1',
+              2: 'animate-slideshow-2',
+              3: 'animate-slideshow-3',
+              4: 'animate-slideshow-4',
+              5: 'animate-slideshow-5',
+            }[num];
+            const baseImg = `absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out ${animClass}`;
+            // Photos 3, 4, 5 use a differently-cropped file on phones (they read better tall)
+            const hasMobileCrop = num === 3 || num === 4 || num === 5;
+            // Computer / iPad crop position (photo 1 nudged down to 62%, midway back from 74%)
+            const desktopPos =
+              num === 5 ? 'center 68%' :
+              num === 3 ? 'center 56%' :
+              num === 1 ? 'center 62%' :
+              'center center';
+            return (
+              <div key={num} className="absolute inset-0">
+                {/* Computer / iPad crop (hidden on phones only when a phone-specific crop exists, or for photo 1 which shifts) */}
+                <img
+                  src={`${githubBaseUrl}/images/hero-shots/home-page-${num}.jpeg?v=${cacheBuster}`}
+                  alt={`Estefania's interior design showcase ${num}`}
+                  style={{ objectPosition: desktopPos }}
+                  className={`${baseImg} ${hasMobileCrop || num === 1 ? 'hidden md:block' : ''}`}
+                />
+                {/* Phone crop */}
+                {num === 1 ? (
+                  <img
+                    src={`${githubBaseUrl}/images/hero-shots/home-page-1.jpeg?v=${cacheBuster}`}
+                    alt="Estefania's interior design showcase 1"
+                    style={{ objectPosition: 'center 74%' }}
+                    className={`${baseImg} md:hidden`}
+                  />
+                ) : hasMobileCrop ? (
+                  <img
+                    src={`${githubBaseUrl}/images/hero-shots/home-page-${num}-mobile.jpeg?v=${cacheBuster}`}
+                    alt={`Estefania's interior design showcase ${num}`}
+                    className={`${baseImg} md:hidden`}
+                  />
+                ) : null}
+              </div>
+            );
+          })}
         </div>
 
-        {/* Logo + welcome overlaid in white near the bottom */}
-        <div className="absolute inset-0 z-10 flex items-end justify-center pb-[16vh] sm:pb-[7vh]">
+        {/* Logo + welcome overlaid in white near the bottom.
+            On phones it sits ~1 inch lower (near the bottom edge); on iPad/desktop unchanged. */}
+        <div className="absolute inset-0 z-10 flex items-end justify-center pb-[5vh] md:pb-[7vh]">
           <div className="text-center text-white w-full flex flex-col items-center">
             <h1 className="font-light tracking-[0.3em] font-sans whitespace-nowrap text-[clamp(1.15rem,2.45vw,1.75rem)]" style={{ transform: 'scaleY(0.7)', lineHeight: '1', wordSpacing: '0.1em' }}>
               ESTEFANIA INTERIORS
@@ -61,8 +95,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer overlaid in white at the very bottom, lifted above the phone toolbar/home indicator */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pb-[env(safe-area-inset-bottom)]">
+      {/* Footer overlaid in white at the very bottom, lifted above the phone toolbar/home indicator.
+          Hidden on phones (declutters the mobile homepage); shown on iPad/desktop. */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pb-[env(safe-area-inset-bottom)] hidden md:block">
         <Footer transparent compact smallIcons />
       </div>
     </div>
