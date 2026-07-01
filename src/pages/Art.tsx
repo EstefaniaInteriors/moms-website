@@ -67,7 +67,7 @@ const Art = () => {
         
         allArtworks.push({
           id: artworkId++,
-          image: `https://raw.githubusercontent.com/EstefaniaInteriors/moms-website/main/${item.path}`,
+          image: `https://raw.githubusercontent.com/EstefaniaInteriors/moms-website/main/${item.path}?v=${Date.now()}`,
           alt: `Artwork by ${artistName}`,
           artist: artistName
         });
@@ -100,6 +100,10 @@ const Art = () => {
   const handleCloseModal = () => {
     setSelectedImage(null);
     setSelectedIndex(null);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handlePrev = (e) => {
@@ -279,11 +283,11 @@ const Art = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
             {artworks.map((artwork, index) => (
               <div key={artwork.id} className="group flex flex-col items-center cursor-pointer" onClick={() => handleImageClick(artwork, index)}>
-                <div className="relative w-full max-w-xs h-64 flex items-center justify-center overflow-hidden rounded-lg">
+                <div className="relative w-full max-w-xs h-64 flex items-center justify-center">
                   <img
                     src={artwork.image}
                     alt={artwork.alt}
-                    className="max-w-full max-h-full object-contain"
+                    className={`max-w-full max-h-full object-contain ${artwork.artist !== 'JULIO' ? 'drop-shadow-[0_10px_14px_rgba(0,0,0,0.4)]' : ''}`}
                   />
                 </div>
                 <p className="text-foreground text-[10px] font-light tracking-[0.2em] font-sans mt-3">{artwork.artist}</p>
@@ -296,46 +300,49 @@ const Art = () => {
       {/* Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-[#f4f1ea]/95 z-50 flex items-center justify-center p-4"
           onClick={handleCloseModal}
         >
-          {/* Left arrow */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-4 text-white hover:text-gray-300 transition-colors text-3xl select-none z-10 p-2"
-            aria-label="Previous image"
-          >
-            &#8249;
-          </button>
-
-          <div className="relative flex flex-col items-center w-fit max-w-[90vw] max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
+          <div className="relative flex flex-col items-center w-fit max-w-[74vw] sm:max-w-[78vw] max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
             <img
               src={selectedImage.image}
               alt={selectedImage.alt}
-              className="max-w-[90vw] max-h-[82vh] object-contain rounded-lg"
+              className={`max-w-[74vw] sm:max-w-[78vw] max-h-[84vh] object-contain ${selectedImage.artist !== 'JULIO' ? 'drop-shadow-[0_16px_30px_rgba(0,0,0,0.28)]' : ''}`}
             />
-            <h3 className="text-white text-[10px] font-light tracking-[0.2em] font-sans mt-4">{selectedImage.artist}</h3>
+            <h3 className="text-neutral-700 text-[10px] font-light tracking-[0.2em] font-sans mt-4">{selectedImage.artist}</h3>
+
+            {/* Close */}
             <button
               onClick={handleCloseModal}
-              className="absolute top-2 right-2 text-white text-2xl hover:text-gray-300 transition-colors bg-black bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center"
+              className="absolute top-0 left-full ml-3 sm:ml-10 xl:ml-24 text-neutral-600 text-xl leading-none hover:text-neutral-900 transition-colors"
+              aria-label="Close"
             >
               ×
             </button>
-          </div>
 
-          {/* Right arrow */}
-          <button
-            onClick={handleNext}
-            className="absolute right-4 text-white hover:text-gray-300 transition-colors text-3xl select-none z-10 p-2"
-            aria-label="Next image"
-          >
-            &#8250;
-          </button>
+            {/* Previous — just to the left of the artwork */}
+            <button
+              onClick={handlePrev}
+              className="absolute top-1/2 -translate-y-1/2 right-full mr-3 sm:mr-10 xl:mr-24 text-neutral-600 text-3xl leading-none select-none hover:text-neutral-900 transition-colors"
+              aria-label="Previous image"
+            >
+              &#8249;
+            </button>
+
+            {/* Next — just to the right of the artwork */}
+            <button
+              onClick={handleNext}
+              className="absolute top-1/2 -translate-y-1/2 left-full ml-3 sm:ml-10 xl:ml-24 text-neutral-600 text-3xl leading-none select-none hover:text-neutral-900 transition-colors"
+              aria-label="Next image"
+            >
+              &#8250;
+            </button>
+          </div>
         </div>
       )}
 
       {/* Museum Exhibition Text */}
-      <div className="py-16 px-6">
+      <div className="pt-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl mx-auto">
             <p className="text-center text-[12px] font-light leading-loose tracking-[0.1em] text-muted-foreground">
@@ -361,8 +368,19 @@ const Art = () => {
         </div>
       </div>
 
+      {/* Back to Top Button */}
+      <div className="pt-[2cm] pb-[2cm] flex justify-center">
+        <button
+          onClick={scrollToTop}
+          className="px-8 py-3 bg-gray-400 text-white hover:bg-gray-500 transition-colors duration-300 font-light tracking-[0.15em] text-[11px]"
+          aria-label="Back to top"
+        >
+          BACK TO TOP
+        </button>
+      </div>
+
       {/* Quote Section */}
-      <div className="py-6 px-6 pb-20">
+      <div className="pb-[2cm] px-6">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl mx-auto">
             <blockquote className="text-center text-[12px] font-light leading-loose tracking-[0.1em] text-muted-foreground">

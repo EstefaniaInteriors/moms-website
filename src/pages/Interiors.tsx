@@ -422,9 +422,10 @@ const Interiors = () => {
                 onClick={() => handleImageClick(project, index)}
               >
                 <div className="aspect-[4/3] relative">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.alt}
+                    style={project.image.includes('entrance-1.jpeg') ? { objectPosition: 'center 24%' } : undefined}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-end">
@@ -440,7 +441,7 @@ const Interiors = () => {
       </section>
 
       {/* Back to Top Button */}
-      <div className="pt-24 pb-8 flex justify-center">
+      <div className="pt-24 flex justify-center">
         <button
           onClick={scrollToTop}
           className="px-8 py-3 bg-gray-400 text-white hover:bg-gray-500 transition-colors duration-300 font-light tracking-[0.15em] text-[11px]"
@@ -456,10 +457,19 @@ const Interiors = () => {
           className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"
           onClick={handleCloseModal}
         >
+          {/* Close — outside the photo, upper-right, same distance out as the right arrow */}
+          <button
+            onClick={handleCloseModal}
+            className="absolute top-4 right-4 text-white text-xl leading-none hover:text-gray-300 transition-colors z-10"
+            aria-label="Close"
+          >
+            ×
+          </button>
+
           {/* Left arrow */}
           <button
             onClick={handlePrev}
-            className="absolute left-4 text-white hover:text-gray-300 transition-colors text-3xl select-none z-10 p-2"
+            className="absolute top-1/2 -translate-y-1/2 left-4 text-white hover:text-gray-300 transition-colors text-3xl select-none z-10 p-2"
             aria-label="Previous image"
           >
             &#8249;
@@ -472,12 +482,6 @@ const Interiors = () => {
               className="max-w-[80vw] max-h-[90vh] object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
-            <button
-              onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 transition-colors"
-            >
-              ×
-            </button>
             <div className="absolute bottom-4 left-4 text-white">
               <h3 className="text-[10px] font-light tracking-[0.2em] font-sans">{formatLocationText(selectedImage.location)}</h3>
             </div>
@@ -486,7 +490,7 @@ const Interiors = () => {
           {/* Right arrow */}
           <button
             onClick={handleNext}
-            className="absolute right-4 text-white hover:text-gray-300 transition-colors text-3xl select-none z-10 p-2"
+            className="absolute top-1/2 -translate-y-1/2 right-4 text-white hover:text-gray-300 transition-colors text-3xl select-none z-10 p-2"
             aria-label="Next image"
           >
             &#8250;
@@ -495,7 +499,7 @@ const Interiors = () => {
       )}
 
       {/* Quote Section */}
-      <div className="py-16 px-6">
+      <div className="py-[2cm] px-6">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl mx-auto">
             <blockquote className="text-center text-[12px] font-light leading-loose tracking-[0.1em] text-muted-foreground">

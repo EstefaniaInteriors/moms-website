@@ -126,9 +126,11 @@ const Contact = () => {
               </div>
               
               {/* Quote below social links */}
-              <blockquote className="text-center text-[11px] font-light leading-loose tracking-[0.1em] text-muted-foreground">
-                "Creativity takes courage." - Henri Matisse
-              </blockquote>
+              <div className="py-[2cm]" style={{ marginTop: 0 }}>
+                <blockquote className="text-center text-[11px] font-light leading-loose tracking-[0.1em] text-muted-foreground">
+                  "Creativity takes courage." - Henri Matisse
+                </blockquote>
+              </div>
               </div>
             </div>
           </div>

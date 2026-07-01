@@ -64,16 +64,16 @@ Estefania Interiors is a boutique interior design and art consultancy studio led
               </p>
 
               {/* About Image */}
-              <div className="text-center" style={{ marginTop: '80px', marginBottom: '80px' }}>
+              <div className="text-center" style={{ marginTop: '80px', marginBottom: '0px' }}>
                 <img 
                   src="https://raw.githubusercontent.com/alexwes/buenos-aires-loft-nyc/refs/heads/main/public/images/about/tifi-hero.jpeg"
                   alt="Estefania Bustamante"
-                  className="mx-auto rounded-lg max-w-lg w-full object-cover"
+                  className="block mx-auto max-w-lg w-full object-cover"
                 />
               </div>
               
               {/* Quote below image */}
-              <div>
+              <div className="py-[2cm]" style={{ marginTop: 0 }}>
                 <blockquote className="text-center text-[12px] font-light leading-loose tracking-[0.1em] text-muted-foreground">
                   "Art is a line around your thoughts." - Gustav Klimt
                 </blockquote>
