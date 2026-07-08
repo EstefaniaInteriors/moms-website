@@ -53,7 +53,7 @@ const Index = () => {
                 {/* Computer / iPad crop (hidden on phones only when a phone-specific crop exists, or for photo 1 which shifts) */}
                 <img
                   src={`${githubBaseUrl}/images/hero-shots/home-page-${num}.jpeg?v=${cacheBuster}`}
-                  alt={`Estefania's interior design showcase ${num}`}
+                  alt={`Interior design by Estefania Bustamante — New York luxury residential project ${num}`}
                   style={{ objectPosition: desktopPos }}
                   className={`${baseImg} ${hasMobileCrop || num === 1 ? 'hidden md:block' : ''}`}
                 />
@@ -61,14 +61,14 @@ const Index = () => {
                 {num === 1 ? (
                   <img
                     src={`${githubBaseUrl}/images/hero-shots/home-page-1.jpeg?v=${cacheBuster}`}
-                    alt="Estefania's interior design showcase 1"
+                    alt="Interior design by Estefania Bustamante — New York luxury residential project 1"
                     style={{ objectPosition: 'center 74%' }}
                     className={`${baseImg} md:hidden`}
                   />
                 ) : hasMobileCrop ? (
                   <img
                     src={`${githubBaseUrl}/images/hero-shots/home-page-${num}-mobile.jpeg?v=${cacheBuster}`}
-                    alt={`Estefania's interior design showcase ${num}`}
+                    alt={`Interior design by Estefania Bustamante — New York luxury residential project ${num}`}
                     className={`${baseImg} md:hidden`}
                   />
                 ) : null}

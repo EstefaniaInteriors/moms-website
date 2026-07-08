@@ -67,7 +67,7 @@ Estefania Interiors is a boutique interior design and art consultancy studio led
               <div className="text-center" style={{ marginTop: '80px', marginBottom: '0px' }}>
                 <img 
                   src="https://raw.githubusercontent.com/alexwes/buenos-aires-loft-nyc/refs/heads/main/public/images/about/tifi-hero.jpeg"
-                  alt="Estefania Bustamante"
+                  alt="Estefania Bustamante, New York interior designer and art consultant"
                   className="block mx-auto max-w-lg w-full object-cover"
                 />
               </div>

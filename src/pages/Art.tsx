@@ -68,7 +68,7 @@ const Art = () => {
         allArtworks.push({
           id: artworkId++,
           image: `https://raw.githubusercontent.com/EstefaniaInteriors/moms-website/main/${item.path}?v=${Date.now()}`,
-          alt: `Artwork by ${artistName}`,
+          alt: `Artwork by ${artistName}, from the Estefania Interiors art collection in New York`,
           artist: artistName
         });
       });
