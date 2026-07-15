@@ -8,8 +8,10 @@ const Index = () => {
   const githubBaseUrl = "https://raw.githubusercontent.com/EstefaniaInteriors/moms-website/main/public";
   const navigate = useNavigate();
   
-  // Add cache-busting parameter to force image refresh
-  const cacheBuster = Date.now();
+  // Stable version tag for image URLs. Do NOT use Date.now() here — a URL that changes
+  // on every render stops Google from indexing the images (they drop out of Google Images).
+  // Only bump this string when the hero photos are swapped, to bust caches on that deploy.
+  const cacheBuster = "2026-07";
 
   const handlePageClick = () => {
     navigate("/interiors");
