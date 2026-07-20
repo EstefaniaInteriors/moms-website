@@ -44,11 +44,12 @@ const Index = () => {
             const baseImg = `absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out ${animClass}`;
             // Photos 3, 4, 5 use a differently-cropped file on phones (they read better tall)
             const hasMobileCrop = num === 3 || num === 4 || num === 5;
-            // Computer / iPad crop position (photo 1 nudged down to 62%, midway back from 74%)
+            // Computer / iPad crop position. Photo 1 kept at 74% (owner reviewed the live
+            // site and is happy with it as-is; the earlier plan to lower it to 62% was cancelled).
             const desktopPos =
               num === 5 ? 'center 68%' :
               num === 3 ? 'center 56%' :
-              num === 1 ? 'center 62%' :
+              num === 1 ? 'center 74%' :
               'center center';
             return (
               <div key={num} className="absolute inset-0">
