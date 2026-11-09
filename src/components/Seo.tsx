@@ -23,7 +23,9 @@ interface SeoProps {
  */
 const Seo = ({ title, description, path, image = DEFAULT_IMAGE, noindex = false }: SeoProps) => {
   const fullTitle = `${title} | Estefania Interiors`;
-  const canonical = `${SITE_URL}${path}`;
+  // Sub-pages are served at "/about/" (Netlify adds the trailing slash), so the
+  // canonical must match that final URL rather than one that redirects.
+  const canonical = `${SITE_URL}${path === "/" || path.endsWith("/") ? path : `${path}/`}`;
 
   return (
     <Helmet>

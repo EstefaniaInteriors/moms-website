@@ -59,7 +59,7 @@ const urlXml = (page) => {
   const imgs = page.images
     .map((im) => `    <image:image>\n      <image:loc>${xmlEscape(im.loc)}</image:loc>\n      <image:title>${xmlEscape(im.title)}</image:title>\n    </image:image>`)
     .join('\n');
-  return `  <url>\n    <loc>${SITE}${page.path}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>${page.priority}</priority>${imgs ? '\n' + imgs : ''}\n  </url>`;
+  return `  <url>\n    <loc>${SITE}${page.path === "/" ? "/" : page.path + "/"}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>${page.priority}</priority>${imgs ? '\n' + imgs : ''}\n  </url>`;
 };
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n\n${pages.map(urlXml).join('\n\n')}\n\n</urlset>\n`;
