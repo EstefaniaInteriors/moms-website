@@ -25,7 +25,7 @@ const Footer = ({ transparent = false, hideSocialLinks = false, compact = false,
                 </svg>
               </a>
               <a
-                href="https://www.pinterest.com/bustamanteeste/"
+                href="https://www.pinterest.com/estefaniainteriors/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-70 transition-opacity"
@@ -67,7 +67,7 @@ const Footer = ({ transparent = false, hideSocialLinks = false, compact = false,
                   </svg>
                 </a>
                 <a
-                  href="https://www.pinterest.com/bustamanteeste/"
+                  href="https://www.pinterest.com/estefaniainteriors/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-70 transition-opacity"
@@ -104,7 +104,7 @@ const Footer = ({ transparent = false, hideSocialLinks = false, compact = false,
                   </svg>
                 </a>
                 <a
-                  href="https://www.pinterest.com/bustamanteeste/"
+                  href="https://www.pinterest.com/estefaniainteriors/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-70 transition-opacity"
