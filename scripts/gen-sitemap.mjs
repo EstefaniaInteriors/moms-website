@@ -36,7 +36,15 @@ function walk(dir) {
 const toUrl = (p) => `${RAW}/${p.split('/').map(encodeURIComponent).join('/')}`;
 const xmlEscape = (s) => s.replace(/[<>&'"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' }[c]));
 
-const allImages = walk(imagesDir);
+const allImages = walk(imagesDir).map((p) => p.split('\\').join('/')).sort();
+
+// Backup copy of the image list, in the same shape as GitHub's tree API. The galleries
+// fall back to it when GitHub's API refuses (it rate-limits shared IPs such as Google's
+// crawler, which made Google see "Failed to load images" and flag the pages as Soft 404).
+writeFileSync(
+  join(root, 'public', 'image-tree.json'),
+  JSON.stringify({ tree: allImages.map((path) => ({ type: 'blob', path })) }),
+);
 const byTop = (top) => allImages.filter((p) => p.startsWith(`public/images/${top}/`));
 
 // Map image folders -> pages, with a human title for each image.

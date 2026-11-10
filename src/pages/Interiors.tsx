@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { fetchImageTree } from "@/lib/imageTree";
 import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
@@ -27,24 +28,7 @@ const Interiors = () => {
       const allImages = [];
       let imageId = 1;
       
-      // First, get the latest commit SHA from the main branch
-      const branchResponse = await fetch("https://api.github.com/repos/EstefaniaInteriors/moms-website/branches/main");
-      
-      if (!branchResponse.ok) {
-        throw new Error(`Failed to fetch branch info: ${branchResponse.status}`);
-      }
-      
-      const branchData = await branchResponse.json();
-      const commitSha = branchData.commit.sha;
-      
-      // Now get the recursive tree using the commit SHA
-      const treeResponse = await fetch(`https://api.github.com/repos/EstefaniaInteriors/moms-website/git/trees/${commitSha}?recursive=1`);
-      
-      if (!treeResponse.ok) {
-        throw new Error(`Failed to fetch repository tree: ${treeResponse.status}`);
-      }
-      
-      const treeData = await treeResponse.json();
+      const treeData = await fetchImageTree();
       
       // Filter for image files in the interiors directory, excluding Bridgehampton
       const imageFiles = treeData.tree.filter(item =>

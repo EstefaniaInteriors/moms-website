@@ -32,3 +32,4 @@ dist-ssr
 
 # Downloaded project archives
 *.zip
+public/image-tree.json
