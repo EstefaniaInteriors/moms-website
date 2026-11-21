@@ -400,8 +400,10 @@ const Interiors = () => {
               <div
                 key={project.id}
                 className={`group relative overflow-hidden rounded-lg cursor-pointer ${
-                  index === sortedProjects.length - 1 && sortedProjects.length % 3 === 1
-                    ? 'lg:col-start-2'
+                  // Last photo (Buenos Aires, with Estefania in it) always closes the
+                  // gallery alone on its own row, centered, at the same size as the others.
+                  index === sortedProjects.length - 1
+                    ? 'md:col-span-2 md:w-[calc((100%-1.5rem)/2)] md:mx-auto lg:col-span-3 lg:w-[calc((100%-3rem)/3)]'
                     : ''
                 }`}
                 onClick={() => handleImageClick(project, index)}
