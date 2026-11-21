@@ -100,7 +100,7 @@ const Interiors = () => {
     'SAG HARBOR TOWN': ['outside-2-sht.png', 'front-door-sht.jpg', 'lr-distance-sht.jpeg'],
     'Sag Harbor': ['outside-1-sh.JPG', 'Estefania Interiors Estefania Bustamante living-room-sag-harbor.jpeg'],
     'Brooklyn': ['exterior.jpeg'],
-    'Park Avenue, New York': ['living-park-1.JPG', 'banio-4.jpg'],
+    'Park Avenue, New York': ['banio-4.jpg', 'living-park-1.JPG'],
     'Upper East Side, Carnegie Hill': ['dining-light-oak-carnegie-hill.jpeg', 'bed-1-carnegie-hill.jpeg', 'bed-2-carnegie-hill.jpeg']
   };
 
